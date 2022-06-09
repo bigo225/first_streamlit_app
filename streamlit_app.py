@@ -22,6 +22,8 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"
 
 streamlit.text(fruityvice_response.json())
 
+streamlit.stop()
+
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
